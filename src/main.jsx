@@ -12,6 +12,7 @@ import Home from './routes/home.jsx'
 import Loan from './routes/Loan.jsx'
 import Tool from './routes/Tool.jsx'
 import User from './routes/User.jsx'
+import Tabletool from './components/tabletool/tabletool.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
   path: "Tool", element: <Tool />
 }, {
   path: "user", element: <User />
-}]);
+},{
+  path: "Tabletoll", element: <Tabletool/>
+}
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

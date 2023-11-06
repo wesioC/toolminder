@@ -1,0 +1,36 @@
+/* Import only the scales you need */
+@import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/gray-dark.css';
+@import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/green-dark.css';
+@import '@radix-ui/colors/red-dark.css';
+
+.table__tool{
+    align-content: center;
+    border-radius: 2rem;
+    border-width: 0.35rem;
+    width: 80% !important; 
+    margin: auto;
+    border-color: var(--green-11);
+    
+}
+
+.TableRoot{
+    border-color: var(--green-11);
+    border-width: 0.35rem;
+    background-color: var(--black-a3);
+}
+.Button{
+    border-color: var(--green-11);
+    border-width: 0.35rem;
+    background-color: var(--black-a3);
+}
+
+@media screen and (max-width: 768px){
+    .table__tool{
+        width: 100% !important; 
+    }
+}

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../header/header.css";
+import './header.css'
 
 function Header() {
     const [active, setActive] = useState("nav__menu");
@@ -19,9 +19,9 @@ function Header() {
             <a href="/" className="nav__brand"><img src="\src\img\toolminder.svg"></img></a>
             <ul className={active}>
                 <li className="nav__item"><a href="/tool" className="nav__link">Ferramentas</a></li>
-                <li className="nav__item"><a href="/user" className="nav__link">Usuários</a></li>
                 <li className="nav__item"><a href="/loan" className="nav__link">Emprestimos</a></li>
-                <li className="nav__item"><a href="#" className="nav__link">sair</a></li>
+                <li className="nav__item"><a href="/user" className="nav__link">Wilker</a></li>
+                <li className="nav__item"><a href="#" className="nav__link" >sair</a></li>
             </ul>
             <div onClick={navToggle} className={icon}>
         <div className="line1"></div>
