@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Header from './components/header/header.jsx'
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -24,9 +26,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Theme >
      <Header/>
     <RouterProvider router={router}/>
-
+    </Theme>
 
   </React.StrictMode>,
 )

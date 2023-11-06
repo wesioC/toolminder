@@ -1,3 +1,6 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/blue-alpha.css';
+@import '@radix-ui/themes/styles.css';
 *,*::after, *::before{
     margin: 0;
     box-sizing: border-box;
@@ -41,7 +44,7 @@ input:focus {
         padding-bottom: 0.75rem;
         padding-left: 1rem;
         padding-right: 1rem;
-        width: 35rem;
+        width: 28rem;
         background-color: white;
         border-radius: 2rem;
         border-color: #76EE94;
@@ -50,4 +53,24 @@ input:focus {
     
         
     }
+    .table__tool{
+        width: 100% !important; 
+    }
+}
+
+.table__tool{
+    align-content: center;
+    border-radius: 2rem;
+    border-color: #76EE94;
+    border-width: 0.35rem;
+    width: 80% !important; 
+    margin: auto;
+    
+}
+
+.TableRoot{
+    border-color: #76EE94;
+    border: #76EE94;
+    border-width: 0.35rem;
+    background-color: var(--black-a3);
 }
