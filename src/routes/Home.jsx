@@ -2,9 +2,11 @@ import React from 'react'
 import '../styles/Home.css'
 import '@radix-ui/themes/styles.css';
 import { Flex, Table, Button } from '@radix-ui/themes';
+
 import Tabletool from '../components/tabletool/TableTool';
 import TableLoan from '../components/tableloan/TableLoan';
 import Header from '../components/header/Header';
+import Loan from '../components/loan/Loan';
 
 const Home = () => {
   return (

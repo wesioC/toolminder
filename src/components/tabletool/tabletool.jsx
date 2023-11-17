@@ -2,6 +2,7 @@ import React from 'react'
 import { Table, Button } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import './TableTool.css';
+import Loan from '../loan/Loan';
 
 
 const TableTool = () => {
@@ -27,7 +28,7 @@ const TableTool = () => {
                         <Table.Cell align='center'>IF Goiano</Table.Cell>
                         <Table.Cell align='center'>
                             <div className="button-container">
-                                <Button  variant="solid" color='orange'>Emprestar</Button>
+                                <Loan/>
                                 {/* <Button  variant="solid" color='green'>Devolver</Button> */}
                             </div>
                         </Table.Cell>
