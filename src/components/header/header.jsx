@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './header.css'
+import './Header.css'
 
 function Header() {
     const [active, setActive] = useState("nav__menu");

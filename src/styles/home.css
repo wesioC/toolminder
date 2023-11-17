@@ -39,7 +39,8 @@ input:focus {
   }
   
   h4 {
-    word-wrap: break-word; /* Permite a quebra de palavras */
+    word-wrap: break-word;
+    text-align: center; /* Permite a quebra de palavras */
   }
   
 @media screen and (max-width: 768px){

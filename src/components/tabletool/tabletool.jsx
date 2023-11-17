@@ -1,10 +1,10 @@
 import React from 'react'
 import { Table, Button } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
-import './tabletool.css';
+import './TableTool.css';
 
 
-const Tabletool = () => {
+const TableTool = () => {
     return (
 
         <div className='table__tool'>
@@ -38,4 +38,4 @@ const Tabletool = () => {
     )
 }
 
-export default Tabletool
+export default TableTool
