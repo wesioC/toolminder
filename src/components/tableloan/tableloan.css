@@ -8,26 +8,27 @@
 @import '@radix-ui/colors/green-dark.css';
 @import '@radix-ui/colors/red-dark.css';
 
-.table__tool{
+.table__loan{
     align-content: center;
     border-radius: 2rem;
     border-width: 0.35rem;
-    width: 90rem; 
+    width: 90rem ; 
+   
     margin: auto;
-    
     
 }
 
+
 @media screen and (max-width: 768px){
-    .table__tool{
+    .table__loan{
         width: 100% !important; 
     }
 }
 
 /* tabletool.css */
 
-.custom-table-tool {
-    border: 0.3rem solid  #76EE94;
+.custom-table {
+    border: 0.3rem solid  #FF477E;
     border-radius: 2rem;
     background-color: #D9D9D9;
     /* Adicione mais estilos conforme necessário */
@@ -41,13 +42,8 @@
     /* Adicione mais estilos conforme necessário */
   }
 
-  .title__row__tool{
-    color: #018031;
+  .title__row{
+    color: #AC0E3D;
     font-style: bold;
   }
   
-  .button-container {
-    display: flex;
-    justify-content: center; /* Alinha os botões no centro horizontal */
-    gap: 10px; /* Espaçamento entre os botões */
-  }

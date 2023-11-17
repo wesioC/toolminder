@@ -1,8 +1,9 @@
 import React from 'react'
 import '../styles/home.css'
 import '@radix-ui/themes/styles.css';
-import { Flex, Table, Button} from '@radix-ui/themes';
+import { Flex, Table, Button } from '@radix-ui/themes';
 import Tabletool from '../components/tabletool/tabletool';
+import TableLoan from '../components/tableloan/tableloan';
 
 const Home = () => {
     return (
@@ -10,7 +11,11 @@ const Home = () => {
             <div>
                 <input type='text' id='busca' placeholder='Buscar ferramenta...' />
             </div>
-            <Tabletool/>
+            <Tabletool />
+            <div className="responsive-text">
+                <h4>Matérias com devolução próximo ao vencimento:</h4>
+                <TableLoan />
+            </div>
         </Flex>
     )
 }

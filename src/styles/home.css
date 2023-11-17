@@ -34,7 +34,14 @@ input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 } 
-
+.responsive-text {
+    max-width: 100%; /* Defina a largura máxima desejada */
+  }
+  
+  h4 {
+    word-wrap: break-word; /* Permite a quebra de palavras */
+  }
+  
 @media screen and (max-width: 768px){
     input {
         font-size: 2rem;

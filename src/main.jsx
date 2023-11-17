@@ -13,6 +13,7 @@ import Loan from './routes/Loan.jsx'
 import Tool from './routes/Tool.jsx'
 import User from './routes/User.jsx'
 import Tabletool from './components/tabletool/tabletool.jsx'
+import TableLoan from './components/tableloan/tableloan.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
   path: "user", element: <User />
 },{
   path: "Tabletoll", element: <Tabletool/>
+},{
+  path: "TableLoan", element: <TableLoan/>
 }
 ]);
 
