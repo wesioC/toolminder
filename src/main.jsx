@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+// main.jsx
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Home from './routes/Home.jsx';
 import Loan from './routes/Loan.jsx';
@@ -12,28 +13,18 @@ import Tool from './routes/Tool.jsx';
 import User from './routes/User.jsx';
 import Header from './components/header/Header.jsx';
 
-
-const router = createBrowserRouter([
-  {
-    path: "/", element: <Home />
-  },
-  {
-    path: "Loan", element: <Loan />
-  },
-  {
-    path: "Tool", element: <Tool />
-  },
-  {
-    path: "User", element: <User />
-  },
-
-]);
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Theme>
-      <Header />
-      <RouterProvider router={router} />
-    </Theme>
-  </React.StrictMode>,
-)
+    <Router>
+      <Theme>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Loan" element={<Loan />} />
+          <Route path="/Tool" element={<Tool />} />
+          <Route path="/User" element={<User />} />
+        </Routes>
+      </Theme>
+    </Router>
+  </React.StrictMode>
+);
