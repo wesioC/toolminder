@@ -2,7 +2,6 @@ import React from 'react'
 import { Table, Button } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import './TableLoan.css';
-import { CiBullhorn } from "react-icons/ci";
 import { FaBell } from "react-icons/fa";
 
 const TableLoan = () => {

@@ -15,7 +15,7 @@ import Header from './components/header/Header.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
-      <Theme>
+      <Theme appearance="light" accentColor="grass" panelBackground="solid" radius="full" >
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

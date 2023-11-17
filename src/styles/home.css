@@ -13,24 +13,25 @@ html{
 body{
     font-size: 1.6rem;
 }
-input {
-    font-size: 2rem;
-    color: #1E1E1E;
-    margin: 4rem;
+.input__busca {
+    
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     padding-left: 1rem;
     padding-right: 1rem;
     width: 50rem;
-    background-color: white;
     border-radius: 2rem;
     border-color: #76EE94;
     border-width: 0.35rem;
     text-align : left;
+    
 
     
 }
-input:focus {
+.div__input{
+    margin-top: 3rem;
+}
+.input__busca :focus {
     box-shadow: 0 0 0 0;
     outline: 0;
 } 
