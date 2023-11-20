@@ -1,7 +1,10 @@
 import React from 'react'
 import { Button, Dialog, Flex, Text, TextField } from '@radix-ui/themes';
 import * as Form from '@radix-ui/react-form';
-import "../styles/Tool.css";
+import "../styles/tool.css";
+
+import TableTool from '../components/tabletool/tabletool';
+import Footer from '../components/footer/Footer';
 
 const Tool = () => {
   return (
@@ -55,6 +58,8 @@ const Tool = () => {
           </Button>
         </Form.Submit>
       </Form.Root>
+      <TableTool/>
+       <Footer/> 
     </Flex>
   )
 }

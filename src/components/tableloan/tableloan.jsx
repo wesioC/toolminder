@@ -1,20 +1,19 @@
 import React from 'react'
 import { Table, Button } from '@radix-ui/themes';
-import '@radix-ui/themes/styles.css';
-import './TableLoan.css';
+import './tableloan.css'
 import { FaBell } from "react-icons/fa";
 
 const TableLoan = () => {
     return (
         <div className='table__loan'>
-            <Table.Root className='custom-table' variant="surface">
+            <Table.Root className='custom-table' >
                 <Table.Header>
                     <Table.Row className='title__row'>
-                        <Table.ColumnHeaderCell align='center'>Nome</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Ferramenta</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Quantidade</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Data de devolução</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Ação</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='title__row' align='center'>Nome</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='title__row' align='center'>Ferramenta</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='title__row' align='center'>Quantidade</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='title__row' align='center'>Data de devolução</Table.ColumnHeaderCell>
+                        <Table.ColumnHeaderCell className='title__row' align='center'>Ação</Table.ColumnHeaderCell>
                     </Table.Row>
                 </Table.Header>
 

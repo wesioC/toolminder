@@ -1,15 +1,17 @@
 import React from 'react'
 import { Table, Button } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
-import './TableTool.css';
+import './tabletool.css';
 import Loan from '../loan/Loan';
+import CrudTool from '../CrudTool/CrudTool';
+
 
 
 const TableTool = () => {
     return (
 
         <div className='table__tool'>
-            <Table.Root className='custom-table-tool' variant="surface">
+            <Table.Root className='custom-table-tool'>
                 <Table.Header>
                     <Table.Row className='title__row__tool'>
                         <Table.ColumnHeaderCell align='center'>Código</Table.ColumnHeaderCell>
@@ -30,6 +32,7 @@ const TableTool = () => {
                             <div className="button-container">
                                 <Loan/>
                                 {/* <Button  variant="solid" color='green'>Devolver</Button> */}
+                                <CrudTool/>
                             </div>
                         </Table.Cell>
                     </Table.Row>

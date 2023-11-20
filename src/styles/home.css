@@ -41,7 +41,8 @@ body{
   
   h4 {
     word-wrap: break-word;
-    text-align: center; /* Permite a quebra de palavras */
+    text-align: center;
+    color: rgb(110, 110, 110); /* Permite a quebra de palavras */
   }
   
 @media screen and (max-width: 768px){

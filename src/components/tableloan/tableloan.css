@@ -13,7 +13,6 @@
     border-radius: 2rem;
     border-width: 0.35rem;
     width: 90rem ; 
-   
     margin: auto;
     
 }
@@ -30,7 +29,7 @@
 .custom-table {
     border: 0.3rem solid  #FF477E;
     border-radius: 2rem;
-    background-color: #D9D9D9;
+    background-color: #eeeeee;
     /* Adicione mais estilos conforme necessário */
   }
   
@@ -43,7 +42,6 @@
   }
 
   .title__row{
-    color: #AC0E3D;
     font-style: bold;
   }
   

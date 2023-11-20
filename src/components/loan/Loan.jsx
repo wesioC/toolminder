@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, Dialog, Flex, Text, TextField } from '@radix-ui/themes';
-import "./Loan.css"
+import "./loan.css"
 
 const Loan = () => {
   return (

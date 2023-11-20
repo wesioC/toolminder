@@ -1,0 +1,29 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/blue-alpha.css';
+@import '@radix-ui/themes/styles.css';
+
+/* Importe suas paletas de cores e estilos necessários */
+
+.footer_ {
+    background: #018031; /* Cor de fundo do footer */
+    margin-top: 1rem;
+    color: white; /* Cor do texto */
+  
+    /* Estilização adicional conforme necessário */
+    padding: 20px; /* Adicionando espaço interno ao footer */
+    display: flex; /* Tornando o footer um contêiner flexível */
+    justify-content: space-around; /* Distribuindo os itens igualmente no footer */
+    align-items: center; /* Alinhando os itens verticalmente no centro */
+  }
+  
+  /* Estilos para os links no footer */
+  .footer_ a {
+    color: white; /* Cor dos links */
+    text-decoration: none; /* Removendo sublinhado padrão dos links */
+    margin-right: 10px; /* Adicionando espaçamento entre os links */
+  }
+  
+  .footer_ a:hover {
+    text-decoration: underline; /* Adicionando sublinhado ao passar o mouse nos links */
+  }
+  
