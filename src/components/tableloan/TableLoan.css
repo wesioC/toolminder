@@ -1,0 +1,56 @@
+/* Import only the scales you need */
+@import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/gray-dark.css';
+@import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/green-dark.css';
+@import '@radix-ui/colors/red-dark.css';
+
+.table__loan{
+    align-content: center;
+    border-radius: 2rem;
+    border-width: 0.35rem;
+    width: 90rem ; 
+    margin: auto;
+    
+}
+
+.a__link{
+    text-decoration: none;
+    color: black;
+    /* font-style: italic; */
+    text-decoration: underline;
+}
+.a__link:hover{
+    text-decoration: none;
+    color: green;
+}
+@media screen and (max-width: 768px){
+    .table__loan{
+        width: 100% !important; 
+    }
+}
+
+/* tabletool.css */
+
+.custom-table {
+    border: 0.3rem solid  #FF477E;
+    border-radius: 2rem;
+    background-color: #eeeeee;
+    /* Adicione mais estilos conforme necessário */
+  }
+  
+  .custom-button {
+    padding: 8px 16px;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* Adicione mais estilos conforme necessário */
+  }
+
+  .title__row{
+    font-style: bold;
+  }
+  

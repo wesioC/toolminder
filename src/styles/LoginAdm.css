@@ -1,0 +1,106 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/violet.css';
+
+*{
+    margin: 0;
+    padding: 0;
+   }
+   
+   html{
+       width: 100vw;
+       height: 100vh;
+   }
+
+.body__{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top;
+    background-image:url(https://trrsaojose.com.br/wp-content/uploads/2021/01/sojaa-e1610717675707.jpg);
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, Helvetica;
+    letter-spacing: 0.02em;
+     font-weight: 400;
+    -webkit-font-smoothing: antialiased; 
+   }
+.blurred-box{
+    position: relative;
+    width: 250px;
+    height: 350px;
+    top: calc(50% - 175px);
+    left: calc(50% - 125px);
+    background: inherit;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .blurred-box:after{
+   content: '';
+   width: 300px;
+   height: 300px;
+   background: inherit; 
+   position: absolute;
+   left: -25px;
+   left: position;
+   right: 0;
+   top: -25px;  
+   top: position;
+   bottom: 0;
+   box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+   filter: blur(10px);
+  }
+  
+  
+  /* Form which you dont need */
+  .user-login-box{
+    position: relative;
+    margin-top: 50px;
+    text-align: center;
+    z-index: 1;
+  }
+  .user-login-box > *{
+    display: inline-block;
+    width: 200px;
+  }
+  
+  .user-icon {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    background-size: cover; /* Ajusta o tamanho da imagem para preencher o círculo */
+    background-position: center; /* Centraliza a imagem vertical e horizontalmente */
+    background-image: url(https://www.ifgoiano.edu.br/home/images/RV/2020/Junho/53-anos.png);
+  }
+  
+  
+  .user-name{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: rgb(124, 124, 124);
+  }
+  
+  input.user-password{
+    width: 120px;
+    height: 18px;
+    opacity: 0.4;
+    border-radius: 2px;
+    padding: 5px 15px;
+    border: 0;
+  }
+  
+  .input_login{
+    margin-bottom: 0.5rem;
+  }
+
+  .button__{
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    text-align: center;
+  }
+
+ 

@@ -1,0 +1,59 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/blue-alpha.css';
+@import '@radix-ui/themes/styles.css';
+
+.footer_ {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(1, 128, 49, 0.6);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column; /* Para ajustar para exibição vertical em telas menores */
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  z-index: 999; /* Ajuste a propriedade z-index para garantir que o footer não seja sobreposto */
+}
+
+.footer_ a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px; /* Ajuste o espaçamento horizontal entre os links */
+}
+
+.footer_ a:hover {
+  text-decoration: underline;
+}
+
+.text__footer {
+  font-weight: 700;
+  font-size: 10pt;
+  margin-bottom: 8px; /* Espaçamento inferior entre os textos */
+}
+
+.text__gw {
+  font-weight: 400;
+  font-size: 8pt;
+  margin-bottom: 16px; /* Espaçamento maior para o texto principal */
+}
+
+/* Media query para telas menores */
+@media screen and (max-width: 768px) {
+  .footer_ {
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .footer_ a {
+    margin: 0;
+    font-size: 10px;
+  }
+
+  .text__gw {
+    font-size: 1rem;
+    margin: 0;
+  }
+}

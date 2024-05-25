@@ -1,0 +1,72 @@
+@import '@radix-ui/colors/black-alpha.css';
+@import '@radix-ui/colors/blue-alpha.css';
+@import '@radix-ui/themes/styles.css';
+*,*::after, *::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Inter', sans-serif;
+    
+}
+.margin__{
+    margin-bottom: 7rem;
+  }
+body{
+    font-size: 1.6rem;
+}
+.input__busca {
+    
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 50rem;
+    border-radius: 2rem;
+    border-color: #76EE94;
+    border-width: 0.35rem;
+    text-align : left;
+    
+
+    
+}
+.div__input{
+    margin-top: 3rem;
+}
+.input__busca :focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+} 
+.responsive-text {
+    max-width: 100%; /* Defina a largura máxima desejada */
+  }
+  
+  h4 {
+    word-wrap: break-word;
+    text-align: center;
+    color: rgb(110, 110, 110); /* Permite a quebra de palavras */
+  }
+  
+@media screen and (max-width: 768px){
+    .input__busca {
+        font-size: 2rem;
+        color: #1E1E1E;
+        margin: 4rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 28rem;
+        background-color: white;
+        border-radius: 2rem;
+        border-color: #76EE94;
+        border-width: 0.35rem;
+        text-align : left;
+    
+        
+    }
+   
+}
+
+
