@@ -4,7 +4,6 @@ import './TableLoan.css';
 import { FaBell } from 'react-icons/fa';
 import Email from '../email/Email';
 
-
 const TableLoan = ({ searchTerm }) => {
     const formatPhoneNumberForWhatsApp = (phoneNumber) => {
         // Remover todos os caracteres não numéricos
@@ -54,18 +53,38 @@ const TableLoan = ({ searchTerm }) => {
         })
             .then(response => {
                 if (response.ok) {
-                    // Lógica adicional caso a solicitação seja bem-sucedida
-                    console.log('Empréstimo atualizado com sucesso!');
-                    window.location.reload();
+                    showNotification('Ferramenta devolvida com sucesso!', 'success');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
                 } else {
-                    throw new Error('Erro ao atualizado empréstimo');
+                    throw new Error('Erro ao atualizar empréstimo');
                 }
             })
             .catch(error => {
-                console.error('Erro ao atualizado empréstimo:', error);
-                // Lógica adicional para lidar com falhas na solicitação
+                console.error('Erro ao atualizar empréstimo:', error);
+                showNotification('Erro ao devolver', 'error');
             });
+    };
 
+    const showNotification = (message, type) => {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerText = message;
+
+        document.body.appendChild(notification);
+
+        // Show the notification
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 2000);
     };
 
     return (

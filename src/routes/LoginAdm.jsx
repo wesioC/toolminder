@@ -45,6 +45,7 @@ const LoginAdm = () => {
       <Flex className="body__">
         <div className="blurred-box">
           <div className="user-login-box">
+          <a href="/" className="logo_login" ><img src="https://painel.toolminder.online/img/ToolMinder.svg"></img></a>
             <span className="user-icon"></span>
             <div className="user-name"></div>
             <label className="input_login">

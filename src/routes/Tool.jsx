@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button, Dialog, Flex, Text, TextField, Separator } from '@radix-ui/themes';
 import * as Form from '@radix-ui/react-form';
@@ -6,10 +6,6 @@ import "../styles/Tool.css";
 import { FaSearch } from 'react-icons/fa';
 import TableAllTool from '../components/tablealltool/TableAllTool';
 import Header from '../components/header/Header';
-
-
-
-
 
 const Tool = () => {
   const location = useLocation();
@@ -20,13 +16,28 @@ const Tool = () => {
   const [toolCode, setToolCode] = useState('');
   const [toolName, setToolName] = useState('');
   const [toolQuantity, setToolQuantity] = useState('');
-
-  // Dentro do componente Tool, adicione o novo estado
   const [isUploading, setIsUploading] = useState(false);
   const [buttonText, setButtonText] = useState('Enviar Arquivo');
 
+  const showNotification = (message, type) => {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerText = message;
 
-  // Funções para atualizar os estados quando os inputs mudarem
+    document.body.appendChild(notification);
+
+    requestAnimationFrame(() => {
+      notification.classList.add('show');
+    });
+
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
+    }, 2000);
+  };
+
   const handleToolCodeChange = (event) => {
     setToolCode(event.target.value);
   };
@@ -39,7 +50,6 @@ const Tool = () => {
     setToolQuantity(event.target.value);
   };
 
-  // Função para imprimir as informações no terminal
   const handleAddButtonClick = async () => {
     const toolData = {
       toolCode: toolCode,
@@ -65,8 +75,10 @@ const Tool = () => {
       setToolCode('');
       setToolName('');
       setToolQuantity('');
+      showNotification('Ferramenta cadastrada com sucesso!', 'success');
     } catch (error) {
       console.error('Erro ao adicionar a ferramenta:', error);
+      showNotification('Erro ao cadastrar a ferramenta', 'error');
     }
   };
 
@@ -76,8 +88,8 @@ const Tool = () => {
       return;
     }
 
-    setIsUploading(true); // Desabilita o botão e inicia o upload
-    setButtonText('Enviando...'); // Opção para indicar que está em progresso
+    setIsUploading(true);
+    setButtonText('Enviando...');
 
     const formData = new FormData();
     formData.append('file', file);
@@ -94,14 +106,17 @@ const Tool = () => {
 
       const data = await response.json();
       console.log('Arquivo enviado com sucesso:', data.message);
-      setButtonText('Objetos cadastrados!'); // Altera o texto do botão após sucesso
+      setButtonText('Objetos cadastrados!');
+      showNotification('Arquivo enviado com sucesso!', 'success');
     } catch (error) {
       console.error('Erro ao enviar arquivo:', error);
-      setButtonText('Erro no envio! Tente novamente'); // Opção para indicar erro
+      setButtonText('Erro no envio! Tente novamente');
+      showNotification('Erro ao enviar arquivo', 'error');
     } finally {
-      setIsUploading(false); // Reabilita o botão após a conclusão do upload
+      setIsUploading(false);
     }
   };
+
 
   return (
     <>
@@ -113,7 +128,6 @@ const Tool = () => {
           </Text>
           <br></br>
 
-          {/* Aviso sobre a inserção de código */}
           <div className="warning-note">
             Para inserir ferramentas de propriedade do Marconi adicione M+cod. Para adicionar de propriedade do Frederico F+cod e de propriedade do IF Goiano apenas cod.
           </div>
@@ -182,9 +196,7 @@ const Tool = () => {
           </Form.Field>
         </Form.Root>
 
-        
-          <Separator orientation="horizontal" size="4" color='green'/>
-        
+        <Separator orientation="horizontal" size="4" color='green' />
 
         <div className='div__input'>
           <TextField.Root className='input__busca'>
@@ -204,12 +216,10 @@ const Tool = () => {
           <h4>Todos os Materias Cadastrados:</h4>
           <TableAllTool searchTerm={searchTerm} />
         </div>
-        {/* <Historic/> */}
         <div className='margin__'></div>
       </Flex>
-
     </>
-  )
+  );
 }
 
-export default Tool
+export default Tool;

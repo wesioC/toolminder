@@ -1,6 +1,7 @@
 import React from 'react';
 import '../tableloan/TableLoan.css';
-import { Flex, DropdownMenu, Button } from '@radix-ui/themes';
+import './Email.css';
+import { Flex, Button } from '@radix-ui/themes';
 import '@radix-ui/themes/styles.css';
 import { FaBell } from 'react-icons/fa';
 
@@ -13,25 +14,47 @@ const sendEmail = async (toolName, toolQuantity, receiver, receiverEmail, dateHa
     dateHand: dateHand,
   };
 
-  fetch(`${window.baseUrl}enviarEmail`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(emailData),
-  })
-    .then(response => {
-      if (response.status === 200) {
-        console.log('Email enviado com sucesso!');
-        // Lógica adicional caso a solicitação seja bem-sucedida
-        window.location.reload();
-      } else {
-        throw new Error('Erro ao enviar email');
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao enviar email:', error);
+  try {
+    const response = await fetch(`${window.baseUrl}enviarEmail`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData),
     });
+
+    if (response.status === 200) {
+      showNotification('Email enviado com sucesso!', 'success');
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      throw new Error('Erro ao enviar email');
+    }
+  } catch (error) {
+    console.error('Erro ao enviar email:', error);
+    showNotification('Erro ao enviar email', 'error');
+  }
+};
+
+const showNotification = (message, type) => {
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.innerText = message;
+
+  document.body.appendChild(notification);
+
+  // Show the notification
+  requestAnimationFrame(() => {
+    notification.classList.add('show');
+  });
+
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  }, 2000);
 };
 
 const Email = ({ toolName, toolQuantity, receiver, receiverEmail, dateHand }) => {
