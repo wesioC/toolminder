@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import { Button, Dialog, Flex, Text, TextField } from '@radix-ui/themes';
+import { Button, Dialog, Flex, Text, TextField, Separator } from '@radix-ui/themes';
 import * as Form from '@radix-ui/react-form';
 import "../styles/Tool.css";
 import { FaSearch } from 'react-icons/fa';
 import TableAllTool from '../components/tablealltool/TableAllTool';
 import Header from '../components/header/Header';
+
+
+
+
 
 const Tool = () => {
   const location = useLocation();
@@ -40,9 +44,9 @@ const Tool = () => {
     const toolData = {
       toolCode: toolCode,
       toolName: toolName,
-      toolQuantity: toolQuantity 
+      toolQuantity: toolQuantity
     };
-  
+
     try {
       const response = await fetch(`${window.baseUrl}addtools`, {
         method: 'POST',
@@ -51,11 +55,11 @@ const Tool = () => {
         },
         body: JSON.stringify(toolData)
       });
-  
+
       if (!response.ok) {
         throw new Error('Erro ao adicionar a ferramenta');
       }
-  
+
       const data = await response.json();
       console.log('Resposta do servidor:', data);
       setToolCode('');
@@ -71,23 +75,23 @@ const Tool = () => {
     if (!file) {
       return;
     }
-  
+
     setIsUploading(true); // Desabilita o botão e inicia o upload
     setButtonText('Enviando...'); // Opção para indicar que está em progresso
-  
+
     const formData = new FormData();
     formData.append('file', file);
-  
+
     try {
       const response = await fetch(`${window.baseUrl}uploadtools`, {
         method: 'POST',
         body: formData,
       });
-  
+
       if (!response.ok) {
         throw new Error('Erro ao enviar arquivo');
       }
-  
+
       const data = await response.json();
       console.log('Arquivo enviado com sucesso:', data.message);
       setButtonText('Objetos cadastrados!'); // Altera o texto do botão após sucesso
@@ -97,95 +101,113 @@ const Tool = () => {
     } finally {
       setIsUploading(false); // Reabilita o botão após a conclusão do upload
     }
-  };  
+  };
 
   return (
     <>
-    <Header matricula={matricula} /> 
-    <Flex direction="column" gap="6" right="3" align="center">
-      <Form.Root className="FormRoot">
-      <Text as="div" size="6" mb="1" weight="bold"  color='green'>
-          Cadastro de Ferramentas:
-        </Text>
-        <br></br>
-        <Form.Field className="FormField" name="email">
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-            <Form.Label className="FormLabel">Código</Form.Label>
-            <Form.Message className="FormMessage" match="valueMissing">
-              Campo obrigatório
-            </Form.Message>
+      <Header matricula={matricula} />
+      <Flex direction="column" gap="6" right="3" align="center">
+        <Form.Root className="FormRoot">
+          <Text as="div" size="6" mb="1" weight="bold" color='green' className="title-center">
+            Cadastro de Ferramentas:
+          </Text>
+          <br></br>
+
+          {/* Aviso sobre a inserção de código */}
+          <div className="warning-note">
+            Para inserir ferramentas de propriedade do Marconi adicione M+cod. Para adicionar de propriedade do Frederico F+cod e de propriedade do IF Goiano apenas cod.
           </div>
-          <Form.Control asChild>
-            <input className="Input" required  value={toolCode} onChange={handleToolCodeChange}/>
-          </Form.Control>
-        </Form.Field>
 
-        <Form.Field className="FormField" name="email">
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-            <Form.Label className="FormLabel">Nome da Ferramenta</Form.Label>
-            <Form.Message className="FormMessage" match="valueMissing">
-              Campo obrigatório
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input className="Input" value={toolName} onChange={handleToolNameChange} required />
-          </Form.Control>
-        </Form.Field>
+          <Form.Field className="FormField" name="email">
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <Form.Label className="FormLabel">Código</Form.Label>
+              <Form.Message className="FormMessage" match="valueMissing">
+                Campo obrigatório
+              </Form.Message>
+            </div>
+            <Form.Control asChild>
+              <input className="Input" required value={toolCode} onChange={handleToolCodeChange} />
+            </Form.Control>
+          </Form.Field>
 
-        <Form.Field className="FormField" name="email">
-          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
-            <Form.Label className="FormLabel">Quantidade disponível</Form.Label>
-            <Form.Message className="FormMessage" match="valueMissing">
-              Campo obrigatório
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input className="Input" type="number" value={toolQuantity} onChange={handleToolQuantityChange} required />
-          </Form.Control>
-        </Form.Field>
+          <Form.Field className="FormField" name="email">
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <Form.Label className="FormLabel">Nome da Ferramenta</Form.Label>
+              <Form.Message className="FormMessage" match="valueMissing">
+                Campo obrigatório
+              </Form.Message>
+            </div>
+            <Form.Control asChild>
+              <input className="Input" value={toolName} onChange={handleToolNameChange} required />
+            </Form.Control>
+          </Form.Field>
 
-        
+          <Form.Field className="FormField" name="email">
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <Form.Label className="FormLabel">Quantidade disponível</Form.Label>
+              <Form.Message className="FormMessage" match="valueMissing">
+                Campo obrigatório
+              </Form.Message>
+            </div>
+            <Form.Control asChild>
+              <input className="Input" type="number" value={toolQuantity} onChange={handleToolQuantityChange} required />
+            </Form.Control>
+          </Form.Field>
 
+          <Form.Submit asChild>
+            <Button className="Button" color='green' style={{ marginTop: 10 }} onClick={handleAddButtonClick}>
+              Enviar
+            </Button>
+          </Form.Submit>
+        </Form.Root>
 
+        <Form.Root className="FormRoot">
+          <Form.Field className="FormField">
+            <Text as="div" size="6" mb="1" weight="bold" color='green' className="title-center">
+              Cadastro de Ferramentas com Planilha Excel:
+            </Text>
+            <div className="warning-note">
+              Para inserir as ferramentas corretamente a planilha deve conter as colunas a seguir: <br /> CÓDIGO - NOME DA FERRAMENTA - QUANTIDADE
+            </div>
+            <br></br>
 
-        <Form.Submit asChild>
-          <Button className="Button" color='green' style={{ marginTop: 10 }} onClick={handleAddButtonClick}>
-            Enviar
-          </Button>
-        </Form.Submit>
-      </Form.Root>
-
-      <Form.Root className="FormRoot">
-        <Form.Field className="FormField">
-            <Form.Label className="FormLabel">Upload de Arquivo Excel</Form.Label>
-            <input type="file" accept=".xls,.xlsx" onChange={handleFileUpload} disabled={isUploading} />
+            <input type="file" accept=".xls,.xlsx" onChange={handleFileUpload} disabled={isUploading} style={{ color: "gray" }} />
             {isUploading ? (
               <Button className="Button" disabled={true}>
                 {buttonText}
               </Button>
             ) : (
-              <Button className="Button" onClick={() => {}}>{buttonText}</Button>
+              <Button className="Button" color='green' style={{ marginTop: 10 }} onClick={() => { }}>{buttonText}</Button>
             )}
-        </Form.Field>
-      </Form.Root>
+          </Form.Field>
+        </Form.Root>
 
-      <div className='div__input'>
-        <TextField.Root className='input__busca'>
-          <TextField.Slot>
-            <FaSearch />
-          </TextField.Slot>
-          <TextField.Input
-            radius="full"
-            placeholder="Digite o nome ou código da ferramenta"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+        
+          <Separator orientation="horizontal" size="4" color='green'/>
+        
+
+        <div className='div__input'>
+          <TextField.Root className='input__busca'>
+            <TextField.Slot>
+              <FaSearch />
+            </TextField.Slot>
+            <TextField.Input
+              radius="full"
+              placeholder="Digite o nome ou código da ferramenta"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </TextField.Root>
-      </div>
+        </div>
 
-      <TableAllTool searchTerm={searchTerm} />
-      <div className='margin__'></div>
-    </Flex>
+        <div className="responsive-text">
+          <h4>Todos os Materias Cadastrados:</h4>
+          <TableAllTool searchTerm={searchTerm} />
+        </div>
+        {/* <Historic/> */}
+        <div className='margin__'></div>
+      </Flex>
+
     </>
   )
 }

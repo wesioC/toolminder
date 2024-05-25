@@ -11,11 +11,12 @@ const Loan = ({ toolName, toolCode, matricula, toolQuantity }) => {
   const [loanQuantity, setLoanQuantity] = useState('');
   const [userName, setUserName] = useState('');
   
+  
 
   useEffect(() => {
     // Chama a rota para obter o nome do usuário ao carregar a página Home
 
-    fetch(`http://localhost:3000/getusername?matricula=${matricula}`)
+    fetch(`${window.baseUrl}getusername?matricula=${matricula}`)
       .then((response) => response.json())
       .then((data) => {
         // Atualiza o estado com o nome retornado pela rota
@@ -40,7 +41,6 @@ const Loan = ({ toolName, toolCode, matricula, toolQuantity }) => {
 
     console.log(loanData);
 
-    // Enviar a solicitação POST para a rota http://localhost:3000/addloan
     fetch(`${window.baseUrl}addloan`, {
       method: 'POST',
       headers: {

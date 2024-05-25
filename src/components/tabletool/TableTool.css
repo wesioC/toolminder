@@ -8,47 +8,61 @@
 @import '@radix-ui/colors/green-dark.css';
 @import '@radix-ui/colors/red-dark.css';
 
-.table__tool{
-    align-content: center;
-    border-radius: 2rem;
-    border-width: 0.35rem;
-    width: 90rem; 
-    margin: auto;
-    margin-bottom: 2rem;
-    
-    
+.table__tool {
+  align-content: center;
+  border-radius: 2rem;
+  border-width: 0.35rem;
+  width: 90rem;
+  margin: auto;
+  margin-bottom: 2rem;
 }
 
-@media screen and (max-width: 768px){
-    .table__tool{
-        width: 100% !important; 
-    }
+@media screen and (max-width: 768px) {
+  .table__tool {
+    width: 100% !important;
+  }
 }
 
 /* tabletool.css */
-
 .custom-table-tool {
-    border: 0.3rem solid  #76EE94;
-    border-radius: 2rem;
-    background-color: #eeeeee;
-    /* Adicione mais estilos conforme necessário */
-  }
-  
-  .custom-button {
-    padding: 8px 16px;
-    border-radius: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    /* Adicione mais estilos conforme necessário */
-  }
+  border: 0.3rem solid #76ee94;
+  border-radius: 2rem;
+  background-color: #eeeeee;
+  width: 100%;
+  border-collapse: collapse; /* Ensures no extra space around cells */
+}
 
-  .title__row__tool{
-    color: #018031;
-    font-style: bold;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center; /* Alinha os botões no centro horizontal */
-    gap: 10px; /* Espaçamento entre os botões */
-  }
+.custom-table-tool thead, .custom-table-tool tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Ensures the columns' widths are fixed */
+}
+
+.custom-table-tool tbody {
+  display: block; /* Make tbody a block to allow height restrictions */
+  max-height: 400px; /* Adjust to your required height */
+  overflow-y: auto; /* Enable vertical scroll */
+}
+
+.custom-table-tool th, .custom-table-tool td {
+  padding: 8px;
+  text-align: center;
+}
+
+.title__row__tool {
+  color: #018031;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Align buttons horizontally in the center */
+  gap: 10px; /* Spacing between buttons */
+}
+
+.custom-button {
+  padding: 8px 16px;
+  border-radius: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}

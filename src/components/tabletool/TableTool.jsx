@@ -42,35 +42,51 @@ const TableTool = ({ searchTerm, matricula }) => {
 
     return (
         <div className='table__tool'>
-            <Table.Root className='custom-table-tool'>
-                <Table.Header>
-                    <Table.Row className='title__row__tool'>
-                        <Table.ColumnHeaderCell align='center'>Código</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Ferramenta</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Quantidade</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Proprietário</Table.ColumnHeaderCell>
-                        <Table.ColumnHeaderCell align='center'>Ação</Table.ColumnHeaderCell>
-                    </Table.Row>
-                </Table.Header>
-
-                <Table.Body>
-                    {filteredTools.map((tool, index) => (
-                        <Table.Row key={index}>
-                            <Table.Cell align='center'>{tool.toolCode}</Table.Cell>
-                            <Table.Cell align='center'>{tool.toolName}</Table.Cell>
-                            <Table.Cell align='center'>{tool.toolQuantity}</Table.Cell>
-                            <Table.Cell align='center'> {tool.toolCode.startsWith('IF') ? 'IF Goiano' : 'Marconi'}</Table.Cell>
-                            <Table.Cell align='center'>
-                                <div className="button-container">
-                                    <Loan toolName={tool.toolName} toolCode={tool.toolCode} matricula={matricula} toolQuantity={tool.toolQuantity} />
-                                    <CrudTool onDelete={() => handleDelete(tool.toolCode)} toolCode={tool.toolCode} toolName={tool.toolName} toolQuantity={tool.toolQuantity} />
-                                </div>
-                            </Table.Cell>
-                        </Table.Row>
-                    ))}
-                </Table.Body>
-            </Table.Root>
-        </div>
+        <Table.Root className='custom-table-tool'>
+          <Table.Header>
+            <Table.Row className='title__row__tool'>
+              <Table.ColumnHeaderCell align='center'>Código</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell align='center'>Ferramenta</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell align='center'>Quantidade</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell align='center'>Proprietário</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell align='center'>Ação</Table.ColumnHeaderCell>
+            </Table.Row>
+          </Table.Header>
+  
+          <Table.Body>
+            {filteredTools.slice(0).map((tool, index) => (
+              <Table.Row key={index}>
+                <Table.Cell align='center'>{tool.toolCode}</Table.Cell>
+                <Table.Cell align='center'>{tool.toolName}</Table.Cell>
+                <Table.Cell align='center'>{tool.toolQuantity}</Table.Cell>
+                <Table.Cell align='center'>
+                  {tool.toolCode.startsWith('F')
+                    ? 'Frederico'
+                    : tool.toolCode.startsWith('M')
+                    ? 'Marconi'
+                    : 'IF Goiano'}
+                </Table.Cell>
+                <Table.Cell align='center'>
+                  <div className="button-container">
+                    <Loan
+                      toolName={tool.toolName}
+                      toolCode={tool.toolCode}
+                      matricula={matricula}
+                      toolQuantity={tool.toolQuantity}
+                    />
+                    <CrudTool
+                      onDelete={() => handleDelete(tool.toolCode)}
+                      toolCode={tool.toolCode}
+                      toolName={tool.toolName}
+                      toolQuantity={tool.toolQuantity}
+                    />
+                  </div>
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table.Root>
+      </div>
     )
 }
 

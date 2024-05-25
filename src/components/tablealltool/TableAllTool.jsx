@@ -61,7 +61,9 @@ const TableAllTool = ({ searchTerm }) => {
                             <Table.Cell align='center'>{tool.toolCode}</Table.Cell>
                             <Table.Cell align='center'>{tool.toolName}</Table.Cell>
                             <Table.Cell align='center'>{tool.toolQuantity}</Table.Cell>
-                            <Table.Cell align='center'>Ésio</Table.Cell>
+                            <Table.Cell align='center'> 
+                                {tool.toolCode.startsWith('F') ? 'Frederico' : tool.toolCode.startsWith('M') ? 'Marconi' : 'IF Goiano'}
+                            </Table.Cell>
                             <Table.Cell align='center'>
                             <div className="button-container">
                                 <CrudTool onDelete={() => handleDelete(tool.toolCode)} />

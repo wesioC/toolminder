@@ -11,6 +11,11 @@
     "openmobile": "node ./node_modules/openmobile/ip.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/material": "^5.15.18",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/themes": "^2.0.0",
@@ -18,7 +23,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-input-mask": "^2.0.4",
-    "react-router-dom": "^6.19.0"
+    "react-router-dom": "^6.19.0",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

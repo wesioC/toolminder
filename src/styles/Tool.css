@@ -123,3 +123,18 @@ button {
       font-size: 13px; /* Ajuste do tamanho da fonte do botão para telas menores */
     }
   }
+
+  /* Adicione isto ao seu arquivo CSS */
+.title-center {
+  text-align: center;
+}
+
+.warning-note {
+  background-color: #ffefc2; /* Cor de fundo amarelo claro */
+  border-left: 5px solid #ffc107; /* Barra lateral amarela */
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
