@@ -64,7 +64,8 @@ a:hover{
     }
     .nav__menu{
         position: fixed;
-        top: 7vh;
+        top: 0.5vh;
+        bottom: 9vh;
         right: 0;
         height: 93vh;
         width: 50vw;
