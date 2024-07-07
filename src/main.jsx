@@ -16,7 +16,8 @@ import Historico from './routes/Historico.jsx';
 
 const root = createRoot(document.getElementById('root'));
 
-window.baseUrl = "https://toolminder.online/";
+// window.baseUrl = "https://toolminder.online/";
+window.baseUrl = "https://localhost:3000/";
 
 root.render(
   <React.StrictMode>

@@ -117,12 +117,11 @@ const Tool = () => {
     }
   };
 
-
   return (
     <>
       <Header matricula={matricula} />
       <Flex direction="column" gap="6" right="3" align="center">
-        <Form.Root className="FormRoot">
+        <Form.Root className="FormRoot" onSubmit={(e) => e.preventDefault()}>
           <Text as="div" size="6" mb="1" weight="bold" color='green' className="title-center">
             Cadastro de Ferramentas:
           </Text>
@@ -132,7 +131,7 @@ const Tool = () => {
             Para inserir ferramentas de propriedade do Marconi adicione M+cod. Para adicionar de propriedade do Frederico F+cod e de propriedade do IF Goiano apenas cod.
           </div>
 
-          <Form.Field className="FormField" name="email">
+          <Form.Field className="FormField" name="toolCode">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Código</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
@@ -144,7 +143,7 @@ const Tool = () => {
             </Form.Control>
           </Form.Field>
 
-          <Form.Field className="FormField" name="email">
+          <Form.Field className="FormField" name="toolName">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Nome da Ferramenta</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
@@ -156,7 +155,7 @@ const Tool = () => {
             </Form.Control>
           </Form.Field>
 
-          <Form.Field className="FormField" name="email">
+          <Form.Field className="FormField" name="toolQuantity">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Quantidade disponível</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
@@ -164,7 +163,7 @@ const Tool = () => {
               </Form.Message>
             </div>
             <Form.Control asChild>
-              <input className="Input" type="number" value={toolQuantity} onChange={handleToolQuantityChange} required />
+              <input id='qtd' className="Input" type="number" value={toolQuantity} onChange={handleToolQuantityChange} required />
             </Form.Control>
           </Form.Field>
 
@@ -175,7 +174,7 @@ const Tool = () => {
           </Form.Submit>
         </Form.Root>
 
-        <Form.Root className="FormRoot">
+        <Form.Root className="FormRoot" onSubmit={(e) => e.preventDefault()}>
           <Form.Field className="FormField">
             <Text as="div" size="6" mb="1" weight="bold" color='green' className="title-center">
               Cadastro de Ferramentas com Planilha Excel:
